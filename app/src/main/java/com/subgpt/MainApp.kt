@@ -5,6 +5,7 @@ import android.content.Context
 import com.google.firebase.FirebaseApp
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.subgpt.utils.SharedPrefrenceManager
 import okhttp3.logging.HttpLoggingInterceptor
 
 
@@ -39,8 +40,13 @@ class MainApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        initializeClasses()
         FirebaseApp.initializeApp(applicationContext);
         checkInternet()
+    }
+
+    private fun initializeClasses() {
+        SharedPrefrenceManager.initializeSharePref(applicationContext)
     }
 
     private fun checkInternet() {

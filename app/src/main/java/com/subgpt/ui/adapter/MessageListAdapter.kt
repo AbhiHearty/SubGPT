@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.subgpt.R
 import com.subgpt.models.GenericModel
+import com.subgpt.utils.SharedPrefrenceManager
 
 
 class MessageListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder?>() {
@@ -98,6 +99,7 @@ class MessageListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder?>() {
         var messageText: TextView
         var timeText: TextView
         var dateText: TextView
+        var assistantName: TextView
 
         fun bind(message: String) {
             messageText.setText(message)
@@ -106,11 +108,13 @@ class MessageListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder?>() {
             timeText.setText(mTime)
             dateText.visibility = View.VISIBLE
             dateText.setText(mDate)
+            assistantName.setText(SharedPrefrenceManager.getSharedPrefInstance().assistantName)
 
         }
 
         init {
             messageText = itemView.findViewById(R.id.text_gchat_message_other)
+            assistantName = itemView.findViewById(R.id.text_gchat_user_other)
             timeText = itemView.findViewById(R.id.text_gchat_timestamp_other)
             dateText = itemView.findViewById(R.id.text_gchat_date_other)
         }

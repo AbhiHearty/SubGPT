@@ -59,6 +59,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-database-ktx'
     implementation 'org.apache.commons:commons-text:1.9'
+    implementation 'com.google.android.material:material:1.8.0'
 
 
 }

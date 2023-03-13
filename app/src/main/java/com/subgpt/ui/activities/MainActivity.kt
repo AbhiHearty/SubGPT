@@ -82,7 +82,6 @@ class MainActivity : AppCompatActivity() {
 
 
         handleQuestion(msg, senderRequest)
-//        getChatGPTResponse(senderRequest)
         mMessageRecycler?.smoothScrollToPosition(messageList.size)
         textToSend?.setText("")
 
@@ -98,7 +97,6 @@ class MainActivity : AppCompatActivity() {
         // Try to find the answer in the database
         questionsRef?.child(question)?.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-//                val answer = snapshot.getValue(String::class.java)
                 val answer: String?
                 val dbQuestion = snapshot.key
                 val similarity = similarityScore(question, dbQuestion)
